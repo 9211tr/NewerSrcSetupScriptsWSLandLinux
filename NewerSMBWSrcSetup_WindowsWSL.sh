@@ -58,7 +58,7 @@ LLVM_URL_SVN=http://llvm.org/svn/llvm-project/llvm/trunk
 LLVM_CLANGEXT_URL_SVN=http://llvm.org/svn/llvm-project/cfe/trunk
 LLVM_COMPILEREXT_URL_SVN=http://llvm.org/svn/llvm-project/compiler-rt/trunk
 NEWER_SRC_URL_SVN=https://github.com/Treeki/NewerSMBW/branches/no-translations
-DEVKITPPC_URL_DL=https://github.com/devkitPro/buildscripts/releases/download/devkitPPC_r33/devkitPPC_r33-linux.tar.xz
+DEVKITPPC_URL_DL=https://github.com/devkitPro/buildscripts/releases/download/devkitPPC_r35/devkitPPC_r35-linux.tar.xz
 
 
 #
@@ -92,7 +92,7 @@ do
   echo "             Windows 10 Linux subsystem.              "
   echo "                     by 9211tr                        "
   echo
-  echo "               Revision 2 (12/10/2018)                "
+  echo "               Revision 2 (12/22/2019)                "
   echo
   echo "######################################################"
   echo
@@ -127,7 +127,7 @@ then
 
 
     clear
-    echo "[3: DOWNLOADING DEVKITPPC REVISION 33 TO $DEVKITPPC_DOWNLOAD_DIR]:"
+    echo "[3: DOWNLOADING DEVKITPPC REVISION 35 TO $DEVKITPPC_DOWNLOAD_DIR]:"
     echo
     wget -O devkitPPC.tar.xz $DEVKITPPC_URL_DL  
     tar -xvf devkitPPC.tar.xz -C $DEVKITPPC_DOWNLOAD_DIR
@@ -250,7 +250,7 @@ then
 
 
     clear
-    echo "[3: REMOVE DEVKITPPC REVISION 33]:"
+    echo "[3: REMOVE DEVKITPPC REVISION 35]:"
     echo
     rm -r ${DEVKITPPC_DOWNLOAD_DIR}devkitPPC
 
