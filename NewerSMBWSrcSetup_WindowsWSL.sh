@@ -92,7 +92,7 @@ do
   echo "             Windows 10 Linux subsystem.              "
   echo "                     by 9211tr                        "
   echo
-  echo "               Revision 2 (12/22/2019)                "
+  echo "               Revision 3 (12/22/2019)                "
   echo
   echo "######################################################"
   echo
