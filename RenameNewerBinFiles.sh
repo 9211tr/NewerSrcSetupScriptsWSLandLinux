@@ -7,7 +7,9 @@
 #
 #  There is no need to do any extra commands/stuff in the script/etc., you just need to run this script, and you will be able to rename the compiled NewerSMBW .BIN files!
 #  Place this script in the Kamek/NewerASM folder of the NewerSMBW sources folder.
-#  This script works on Mac OS X and Linux.
+#  This script works on macOS and Linux.
+#
+#  The official repository for this script is: https://github.com/9211tr/NewerSrcSetupScriptsWSLandLinux
 #
 
 clear

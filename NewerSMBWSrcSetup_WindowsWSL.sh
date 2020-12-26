@@ -92,7 +92,7 @@ do
   echo "             Windows 10 Linux subsystem.              "
   echo "                     by 9211tr                        "
   echo
-  echo "               Revision 3 (12/22/2019)                "
+  echo "               Revision 4 (12/25/2020)                "
   echo
   echo "######################################################"
   echo
@@ -121,7 +121,7 @@ then
 
 
     clear
-    echo "[2: DOWNLOADING THE \"WORKING\" NEWERSMBW SOURCES TO $NEWER_SRC_DOWNLOAD_DIR/]:"
+    echo "[2: DOWNLOADING THE \"WORKING\" NEWERSMBW SOURCES TO $NEWER_SRC_DOWNLOAD_DIR]:"
     echo
     svn co $NEWER_SRC_URL_SVN $NEWER_SRC_DOWNLOAD_DIR
 
@@ -136,17 +136,17 @@ then
 
 
     clear
-    echo "[4: DOWNLOADING LLVM COMPILER (MAIN DATA) REVISION $LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR/]:"
+    echo "[4: DOWNLOADING LLVM COMPILER (MAIN DATA) REVISION $LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR]:"
     echo
     svn co -r $LLVM_REVISION_SVN $LLVM_URL_SVN $LLVM_SRC_DOWNLOAD_DIR
     clear
     echo "[4B: DOWNLOADING LLVM COMPILER (CLANG EXTENSION) REVISION"
-    echo "$LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR/tools/clang/]:"
+    echo "$LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR/tools/clang]:"
     echo
     svn co -r $LLVM_REVISION_SVN $LLVM_CLANGEXT_URL_SVN $LLVM_SRC_DOWNLOAD_DIR/tools/clang
     clear
     echo "[4C: DOWNLOADING LLVM COMPILER (COMPILER EXTENSION) REVISION"
-    echo "$LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR/projects/compiler-rt/]:"
+    echo "$LLVM_REVISION_SVN TO $LLVM_SRC_DOWNLOAD_DIR/projects/compiler-rt]:"
     echo
     svn co -r $LLVM_REVISION_SVN $LLVM_COMPILEREXT_URL_SVN $LLVM_SRC_DOWNLOAD_DIR/projects/compiler-rt
 
@@ -159,8 +159,8 @@ then
 
 
     clear
-    echo "[6: BUILDING NEWER-PATCHED LLVM REVISION"
-    echo "$LLVM_REVISION_SVN TO $NEWER_PATCHED_LLVM_INSTALL_DIR/]:"
+    echo "[6: BUILDING NEWER-PATCHED LLVM REVISION $LLVM_REVISION_SVN"
+    echo "TO $NEWER_PATCHED_LLVM_INSTALL_DIR]:"
     echo
     mkdir $NEWER_PATCHED_LLVM_INSTALL_DIR
     mkdir $LLVM_SRC_DOWNLOAD_DIR/build
@@ -173,8 +173,8 @@ then
 
 
     clear
-    echo "[7: TEST COMPILE NEWER SOURCES TO .BIN & RENAME THEM (IF SUCCESSFUL, IN"
-    echo "$NEWER_SRC_DOWNLOAD_DIR/Kamek/NewerASM/renamed/, YOU'LL SEE .BIN FILES)]:"
+    echo "[7: TEST COMPILE NEWER SOURCES TO .BIN AND RENAME THEM (IF SUCCESSFUL, IN"
+    echo "$NEWER_SRC_DOWNLOAD_DIR/Kamek/NewerASM/renamed, YOU'LL SEE .BIN FILES)]:"
     echo
     cd $NEWER_SRC_DOWNLOAD_DIR/Kamek
     mv src/heapbar.S src/heapbar2.S
@@ -211,7 +211,7 @@ then
     echo "[8: FINISHING INSTALLATION]:"
     echo
     echo "" > ${TARGET_DIR_INSTALL}newersmbw_compile2.sh
-    sed -e "1i#\!/bin/bash\n\n#\n#  This is the necessary script that you can EASILY run whenever you want to compile the NewerSMBW Sources.\n#  There is no need to do any extra commands/stuff in the script/etc., you just need to run this script, and you will be able to compile NewerSMBW\!\n#\n#  P.S.: You can use the  --autorename  option (when you run the script), to auto-rename the kamek-compiled .BIN files to their NewerSMBW-readable names.\n#  Script by 9211tr.\n#\n\nclear\necho\n\n\ncd $NEWER_SRC_DOWNLOAD_DIR/Kamek\nif [ -d \"NewerASM/renamed\" ]; then rm -r NewerASM/renamed; fi\nif [ -f \"NewerASM/n_jpn_dlcode.bin\" ]; then rm NewerASM/n_jpn_dlcode.bin; fi\nif [ -f \"NewerASM/n_jpn2_dlcode.bin\" ]; then rm NewerASM/n_jpn2_dlcode.bin; fi\nif [ -f \"NewerASM/n_jpn_dlrelocs.bin\" ]; then rm NewerASM/n_jpn_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_jpn2_dlrelocs.bin\" ]; then rm NewerASM/n_jpn2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_jpn_loader.bin\" ]; then rm NewerASM/n_jpn_loader.bin; fi\nif [ -f \"NewerASM/n_jpn2_loader.bin\" ]; then rm NewerASM/n_jpn2_loader.bin; fi\nif [ -f \"NewerASM/n_ntsc_dlcode.bin\" ]; then rm NewerASM/n_ntsc_dlcode.bin; fi\nif [ -f \"NewerASM/n_ntsc2_dlcode.bin\" ]; then rm NewerASM/n_ntsc2_dlcode.bin; fi\nif [ -f \"NewerASM/n_ntsc_dlrelocs.bin\" ]; then rm NewerASM/n_ntsc_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_ntsc2_dlrelocs.bin\" ]; then rm NewerASM/n_ntsc2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_ntsc_loader.bin\" ]; then rm NewerASM/n_ntsc_loader.bin; fi\nif [ -f \"NewerASM/n_ntsc2_loader.bin\" ]; then rm NewerASM/n_ntsc2_loader.bin; fi\nif [ -f \"NewerASM/n_pal_dlcode.bin\" ]; then rm NewerASM/n_pal_dlcode.bin; fi\nif [ -f \"NewerASM/n_pal2_dlcode.bin\" ]; then rm NewerASM/n_pal2_dlcode.bin; fi\nif [ -f \"NewerASM/n_pal_dlrelocs.bin\" ]; then rm NewerASM/n_pal_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_pal2_dlrelocs.bin\" ]; then rm NewerASM/n_pal2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_pal_loader.bin\" ]; then rm NewerASM/n_pal_loader.bin; fi\nif [ -f \"NewerASM/n_pal2_loader.bin\" ]; then rm NewerASM/n_pal2_loader.bin; fi\n\npython tools/mapfile_tool.py\npython tools/kamek.py NewerProjectKP.yaml --show-cmd --no-rels --use-clang --gcc-type=${DEVKITPPC_DOWNLOAD_DIR}devkitPPC/bin/powerpc-eabi --llvm-path=${NEWER_PATCHED_LLVM_INSTALL_DIR}/bin\n\nif [ \"\$(echo \${1} | tr \\\'[A-Z]\\\' \\\'[a-z]\\\')\" = \"--autorename\" ]\nthen\n    cd NewerASM\n    if [ \! -d \"renamed\" ]; then mkdir renamed; fi\n    if [ -f \"renamed/DLCodeJP_1.bin\" ]; then rm renamed/DLCodeJP_1.bin; fi\n    if [ -f \"renamed/DLCodeJP_2.bin\" ]; then rm renamed/DLCodeJP_2.bin; fi\n    if [ -f \"renamed/DLRelocsJP_1.bin\" ]; then rm renamed/DLRelocsJP_1.bin; fi\n    if [ -f \"renamed/DLRelocsJP_2.bin\" ]; then rm renamed/DLRelocsJP_2.bin; fi\n    if [ -f \"renamed/SystemJP_1.bin\" ]; then rm renamed/SystemJP_1.bin; fi\n    if [ -f \"renamed/SystemJP_2.bin\" ]; then rm renamed/SystemJP_2.bin; fi\n    if [ -f \"renamed/DLCodeUS_1.bin\" ]; then rm renamed/DLCodeUS_1.bin; fi\n    if [ -f \"renamed/DLCodeUS_2.bin\" ]; then rm renamed/DLCodeUS_2.bin; fi\n    if [ -f \"renamed/DLRelocsUS_1.bin\" ]; then rm renamed/DLRelocsUS_1.bin; fi\n    if [ -f \"renamed/DLRelocsUS_2.bin\" ]; then rm renamed/DLRelocsUS_2.bin; fi\n    if [ -f \"renamed/SystemUS_1.bin\" ]; then rm renamed/SystemUS_1.bin; fi\n    if [ -f \"renamed/SystemUS_2.bin\" ]; then rm renamed/SystemUS_1.bin; fi\n    if [ -f \"renamed/DLCodeEU_1.bin\" ]; then rm renamed/DLCodeEU_1.bin; fi\n    if [ -f \"renamed/DLCodeEU_2.bin\" ]; then rm renamed/DLCodeEU_2.bin; fi\n    if [ -f \"renamed/DLRelocsEU_1.bin\" ]; then rm renamed/DLRelocsEU_1.bin; fi\n    if [ -f \"renamed/DLRelocsEU_2.bin\" ]; then rm renamed/DLRelocsEU_1.bin; fi\n    if [ -f \"renamed/SystemEU_1.bin\" ]; then rm renamed/SystemEU_1.bin; fi\n    if [ -f \"renamed/SystemEU_2.bin\" ]; then rm renamed/SystemEU_2.bin; fi\n\n    mv n_jpn_dlcode.bin renamed/DLCodeJP_1.bin\n    mv n_jpn2_dlcode.bin renamed/DLCodeJP_2.bin\n    mv n_jpn_dlrelocs.bin renamed/DLRelocsJP_1.bin\n    mv n_jpn2_dlrelocs.bin renamed/DLRelocsJP_2.bin\n    mv n_jpn_loader.bin renamed/SystemJP_1.bin\n    mv n_jpn2_loader.bin renamed/SystemJP_2.bin\n    mv n_ntsc_dlcode.bin renamed/DLCodeUS_1.bin\n    mv n_ntsc2_dlcode.bin renamed/DLCodeUS_2.bin\n    mv n_ntsc_dlrelocs.bin renamed/DLRelocsUS_1.bin\n    mv n_ntsc2_dlrelocs.bin renamed/DLRelocsUS_2.bin\n    mv n_ntsc_loader.bin renamed/SystemUS_1.bin\n    mv n_ntsc2_loader.bin renamed/SystemUS_2.bin\n    mv n_pal_dlcode.bin renamed/DLCodeEU_1.bin\n    mv n_pal2_dlcode.bin renamed/DLCodeEU_2.bin\n    mv n_pal_dlrelocs.bin renamed/DLRelocsEU_1.bin\n    mv n_pal2_dlrelocs.bin renamed/DLRelocsEU_2.bin\n    mv n_pal_loader.bin renamed/SystemEU_1.bin\n    mv n_pal2_loader.bin renamed/SystemEU_2.bin\nfi" ${TARGET_DIR_INSTALL}newersmbw_compile2.sh > ${TARGET_DIR_INSTALL}newersmbw_compile.sh
+    sed -e "1i#\!/bin/bash\n\n#\n#  This is the necessary script that you can EASILY run whenever you want to compile the NewerSMBW Sources.\n#  There is no need to do any extra commands/stuff in the script/etc., you just need to run this script, and you will be able to compile NewerSMBW\!\n#\n#  P.S.: You can use the  --autorename  option (when you run the script), to auto-rename the Kamek-compiled .BIN files to their NewerSMBW-readable names.\n#  Script by 9211tr.\n#\n\nclear\necho\n\n\ncd $NEWER_SRC_DOWNLOAD_DIR/Kamek\nif [ -d \"NewerASM/renamed\" ]; then rm -r NewerASM/renamed; fi\nif [ -f \"NewerASM/n_jpn_dlcode.bin\" ]; then rm NewerASM/n_jpn_dlcode.bin; fi\nif [ -f \"NewerASM/n_jpn2_dlcode.bin\" ]; then rm NewerASM/n_jpn2_dlcode.bin; fi\nif [ -f \"NewerASM/n_jpn_dlrelocs.bin\" ]; then rm NewerASM/n_jpn_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_jpn2_dlrelocs.bin\" ]; then rm NewerASM/n_jpn2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_jpn_loader.bin\" ]; then rm NewerASM/n_jpn_loader.bin; fi\nif [ -f \"NewerASM/n_jpn2_loader.bin\" ]; then rm NewerASM/n_jpn2_loader.bin; fi\nif [ -f \"NewerASM/n_ntsc_dlcode.bin\" ]; then rm NewerASM/n_ntsc_dlcode.bin; fi\nif [ -f \"NewerASM/n_ntsc2_dlcode.bin\" ]; then rm NewerASM/n_ntsc2_dlcode.bin; fi\nif [ -f \"NewerASM/n_ntsc_dlrelocs.bin\" ]; then rm NewerASM/n_ntsc_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_ntsc2_dlrelocs.bin\" ]; then rm NewerASM/n_ntsc2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_ntsc_loader.bin\" ]; then rm NewerASM/n_ntsc_loader.bin; fi\nif [ -f \"NewerASM/n_ntsc2_loader.bin\" ]; then rm NewerASM/n_ntsc2_loader.bin; fi\nif [ -f \"NewerASM/n_pal_dlcode.bin\" ]; then rm NewerASM/n_pal_dlcode.bin; fi\nif [ -f \"NewerASM/n_pal2_dlcode.bin\" ]; then rm NewerASM/n_pal2_dlcode.bin; fi\nif [ -f \"NewerASM/n_pal_dlrelocs.bin\" ]; then rm NewerASM/n_pal_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_pal2_dlrelocs.bin\" ]; then rm NewerASM/n_pal2_dlrelocs.bin; fi\nif [ -f \"NewerASM/n_pal_loader.bin\" ]; then rm NewerASM/n_pal_loader.bin; fi\nif [ -f \"NewerASM/n_pal2_loader.bin\" ]; then rm NewerASM/n_pal2_loader.bin; fi\n\npython tools/mapfile_tool.py\npython tools/kamek.py NewerProjectKP.yaml --show-cmd --no-rels --use-clang --gcc-type=${DEVKITPPC_DOWNLOAD_DIR}devkitPPC/bin/powerpc-eabi --llvm-path=${NEWER_PATCHED_LLVM_INSTALL_DIR}/bin\n\nif [ \"\$(echo \${1} | tr \\\'[A-Z]\\\' \\\'[a-z]\\\')\" = \"--autorename\" ]\nthen\n    cd NewerASM\n    if [ \! -d \"renamed\" ]; then mkdir renamed; fi\n    if [ -f \"renamed/DLCodeJP_1.bin\" ]; then rm renamed/DLCodeJP_1.bin; fi\n    if [ -f \"renamed/DLCodeJP_2.bin\" ]; then rm renamed/DLCodeJP_2.bin; fi\n    if [ -f \"renamed/DLRelocsJP_1.bin\" ]; then rm renamed/DLRelocsJP_1.bin; fi\n    if [ -f \"renamed/DLRelocsJP_2.bin\" ]; then rm renamed/DLRelocsJP_2.bin; fi\n    if [ -f \"renamed/SystemJP_1.bin\" ]; then rm renamed/SystemJP_1.bin; fi\n    if [ -f \"renamed/SystemJP_2.bin\" ]; then rm renamed/SystemJP_2.bin; fi\n    if [ -f \"renamed/DLCodeUS_1.bin\" ]; then rm renamed/DLCodeUS_1.bin; fi\n    if [ -f \"renamed/DLCodeUS_2.bin\" ]; then rm renamed/DLCodeUS_2.bin; fi\n    if [ -f \"renamed/DLRelocsUS_1.bin\" ]; then rm renamed/DLRelocsUS_1.bin; fi\n    if [ -f \"renamed/DLRelocsUS_2.bin\" ]; then rm renamed/DLRelocsUS_2.bin; fi\n    if [ -f \"renamed/SystemUS_1.bin\" ]; then rm renamed/SystemUS_1.bin; fi\n    if [ -f \"renamed/SystemUS_2.bin\" ]; then rm renamed/SystemUS_1.bin; fi\n    if [ -f \"renamed/DLCodeEU_1.bin\" ]; then rm renamed/DLCodeEU_1.bin; fi\n    if [ -f \"renamed/DLCodeEU_2.bin\" ]; then rm renamed/DLCodeEU_2.bin; fi\n    if [ -f \"renamed/DLRelocsEU_1.bin\" ]; then rm renamed/DLRelocsEU_1.bin; fi\n    if [ -f \"renamed/DLRelocsEU_2.bin\" ]; then rm renamed/DLRelocsEU_1.bin; fi\n    if [ -f \"renamed/SystemEU_1.bin\" ]; then rm renamed/SystemEU_1.bin; fi\n    if [ -f \"renamed/SystemEU_2.bin\" ]; then rm renamed/SystemEU_2.bin; fi\n\n    mv n_jpn_dlcode.bin renamed/DLCodeJP_1.bin\n    mv n_jpn2_dlcode.bin renamed/DLCodeJP_2.bin\n    mv n_jpn_dlrelocs.bin renamed/DLRelocsJP_1.bin\n    mv n_jpn2_dlrelocs.bin renamed/DLRelocsJP_2.bin\n    mv n_jpn_loader.bin renamed/SystemJP_1.bin\n    mv n_jpn2_loader.bin renamed/SystemJP_2.bin\n    mv n_ntsc_dlcode.bin renamed/DLCodeUS_1.bin\n    mv n_ntsc2_dlcode.bin renamed/DLCodeUS_2.bin\n    mv n_ntsc_dlrelocs.bin renamed/DLRelocsUS_1.bin\n    mv n_ntsc2_dlrelocs.bin renamed/DLRelocsUS_2.bin\n    mv n_ntsc_loader.bin renamed/SystemUS_1.bin\n    mv n_ntsc2_loader.bin renamed/SystemUS_2.bin\n    mv n_pal_dlcode.bin renamed/DLCodeEU_1.bin\n    mv n_pal2_dlcode.bin renamed/DLCodeEU_2.bin\n    mv n_pal_dlrelocs.bin renamed/DLRelocsEU_1.bin\n    mv n_pal2_dlrelocs.bin renamed/DLRelocsEU_2.bin\n    mv n_pal_loader.bin renamed/SystemEU_1.bin\n    mv n_pal2_loader.bin renamed/SystemEU_2.bin\nfi" ${TARGET_DIR_INSTALL}newersmbw_compile2.sh > ${TARGET_DIR_INSTALL}newersmbw_compile.sh
     rm ${TARGET_DIR_INSTALL}newersmbw_compile2.sh
     chmod +x ${TARGET_DIR_INSTALL}newersmbw_compile.sh
     clear
@@ -225,9 +225,9 @@ then
     echo
     echo "P.S.: You can also do  './newersmbw_compile.sh --autorename'"
     echo "instead of  './newersmbw_compile.sh'  to auto-rename the"
-    echo "kamek-compiled .BIN files to their NewerSMBW-readable"
+    echo "Kamek-compiled .BIN files to their NewerSMBW-readable"
     echo "names. The renamed files will be placed in"
-    echo "$NEWER_SRC_DOWNLOAD_DIR/Kamek/NewerASM/renamed/"
+    echo "$NEWER_SRC_DOWNLOAD_DIR/Kamek/NewerASM/renamed"
     echo   
 elif [ "$(expr substr $RESPONSE 1 1)" = "U" ] || [ "$(expr substr $RESPONSE 1 1)" = "u" ]
 then
@@ -259,6 +259,7 @@ then
     echo "[4: REMOVE NEWER-PATCHED LLVM, REVISION $LLVM_REVISION_SVN]:"
     echo
     rm -r $NEWER_PATCHED_LLVM_INSTALL_DIR
+    if [ -d "$LLVM_SRC_DOWNLOAD_DIR" ]; then rm -r $LLVM_SRC_DOWNLOAD_DIR; fi
 
 
     clear
